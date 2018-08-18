@@ -74,20 +74,23 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
             String strFirstName = firstName.getText().toString();
             String strLastName = lastName.getText().toString();
             String strPhone = phoneNum.getText().toString();
-            Integer phoneNumber = Integer.parseInt(strPhone);
 
-            if (phoneNumber != null) {
-                getFragmentManager().popBackStack();
-                Contact newPerson = new Contact(strFirstName, strLastName, phoneNumber);
+            if (strFirstName.isEmpty() || strLastName.isEmpty() || strPhone.isEmpty()) {
+                if (strFirstName.isEmpty()) {
+                    firstName.setError(getString(R.string.error_empty));
+                } else if (strLastName.isEmpty()) {
+                    lastName.setError(getString(R.string.error_empty));
+                } else {
+                    phoneNum.setError(getString(R.string.error_empty));
+                }
+            } else {
+                Contact newPerson = new Contact(strFirstName, strLastName, strPhone);
                 newContact.passContact(newPerson);
                 try {
                     getActivity().getSupportFragmentManager().popBackStack();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-            } else {
-                ((EditText)view.findViewById(R.id.etx_PhoneNumber)).setError(getString(R.string.app_name));
             }
         }
     }

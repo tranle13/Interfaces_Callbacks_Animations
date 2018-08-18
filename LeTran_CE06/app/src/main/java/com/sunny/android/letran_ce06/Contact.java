@@ -12,10 +12,10 @@ public class Contact implements Serializable {
     // Member variables
     private String firstName;
     private String lastName;
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     // Constructor
-    public Contact(String firstName, String lastName, Integer phoneNumber) {
+    public Contact(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -24,7 +24,7 @@ public class Contact implements Serializable {
     // Getters
     public String getFirstName() { return firstName; }
     public String getLastName() { return lastName; }
-    public Integer getPhoneNumber() { return phoneNumber; }
+    public String getPhoneNumber() { return phoneNumber; }
 
     @Override
     public String toString() {

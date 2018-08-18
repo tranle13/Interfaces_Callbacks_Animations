@@ -23,7 +23,8 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/first_name" />
+            android:text="@string/first_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:id="@+id/txt_FirstName"
@@ -32,6 +33,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/textView4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             tools:text="Sunny" />
     </RelativeLayout>
 
@@ -50,7 +52,8 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/last_name" />
+            android:text="@string/last_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:id="@+id/txt_LastName"
@@ -59,6 +62,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/textView6"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             tools:text="Le" />
     </RelativeLayout>
 
@@ -77,7 +81,8 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/phone" />
+            android:text="@string/phone"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:id="@+id/txt_PhoneNumber"
@@ -86,6 +91,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/textView8"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             tools:text="4075623891" />
     </RelativeLayout>
 
