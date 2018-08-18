@@ -19,7 +19,8 @@ import com.sunny.android.letran_ce06.fragments.DetailsFragment;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements ContactListFragment.GetContact, AddContactFragment.PassContact {
+public class MainActivity extends AppCompatActivity implements ContactListFragment.GetContact,
+        AddContactFragment.PassContact, DetailsFragment.GoingBack {
 
     private ArrayList<Contact> contacts = new ArrayList<>();
     private Animation scaleUp;
@@ -72,6 +73,12 @@ public class MainActivity extends AppCompatActivity implements ContactListFragme
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentHolder,
                 ContactListFragment.newInstance(contacts)).commit();
 
+        fab.startAnimation(scaleUp);
+        fab.show();
+    }
+
+    @Override
+    public void goBack() {
         fab.startAnimation(scaleUp);
         fab.show();
     }
