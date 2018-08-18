@@ -12,12 +12,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.sunny.android.letran_ce06.Contact;
 import com.sunny.android.letran_ce06.R;
 
-public class DetailsFragment extends Fragment {
+public class DetailsFragment extends Fragment implements View.OnClickListener {
 
     private static final String KEY = "CONTACT_KEY";
 
@@ -36,24 +37,35 @@ public class DetailsFragment extends Fragment {
         return fragment;
     }
 
-        @Nullable
-        @Override
-        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.details_fragment, container, false);
-        }
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.details_fragment, container, false);
+    }
 
-        @Override
-        public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-            if (getArguments() != null) {
-                if (getView() != null) {
-                    Contact number = (Contact) getArguments().getSerializable(KEY);
+        if (getArguments() != null) {
+            if (getView() != null) {
+                Contact number = (Contact) getArguments().getSerializable(KEY);
 
-                    ((TextView)getView().findViewById(R.id.txt_FirstName)).setText(number.getFirstName());
-                    ((TextView)getView().findViewById(R.id.txt_LastName)).setText(number.getLastName());
-                    ((TextView)getView().findViewById(R.id.txt_PhoneNumber)).setText(number.getPhoneNumber());
-                }
+                ((TextView)getView().findViewById(R.id.txt_FirstName)).setText(number.getFirstName());
+                ((TextView)getView().findViewById(R.id.txt_LastName)).setText(number.getLastName());
+                ((TextView)getView().findViewById(R.id.txt_PhoneNumber)).setText(number.getPhoneNumber());
+
+                ((Button)getView().findViewById(R.id.btn_Back)).setOnClickListener(this);
             }
         }
     }
+
+    @Override
+    public void onClick(View view) {
+        try {
+            getActivity().getSupportFragmentManager().popBackStack();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

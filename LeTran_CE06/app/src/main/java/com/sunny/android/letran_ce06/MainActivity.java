@@ -8,6 +8,7 @@ package com.sunny.android.letran_ce06;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -18,7 +19,7 @@ import com.sunny.android.letran_ce06.fragments.DetailsFragment;
 
 import java.util.ArrayList;
 
-    public class MainActivity extends AppCompatActivity implements ContactListFragment.GetContact {
+    public class MainActivity extends AppCompatActivity implements ContactListFragment.GetContact, AddContactFragment.PassContact {
 
     ArrayList<Contact> contacts = new ArrayList<>();
 
@@ -36,7 +37,7 @@ import java.util.ArrayList;
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
 
-                getSupportFragmentManager().beginTransaction().
+                getSupportFragmentManager().beginTransaction().addToBackStack(null).
                         setCustomAnimations(R.animator.slide_in_left, 0, 0, R.animator.slide_out_right).
                         add(R.id.fragmentHolder, AddContactFragment.newInstance()).commit();
             }
@@ -54,5 +55,13 @@ import java.util.ArrayList;
         getSupportFragmentManager().beginTransaction().addToBackStack(null).
                 setCustomAnimations(R.animator.slide_in_left, 0, 0, R.animator.slide_out_right).
                 add(R.id.fragmentHolder, DetailsFragment.newInstance(chosenContact)).commit();
+    }
+
+    @Override
+    public void passContact(Contact newContact) {
+        contacts.add(newContact);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentHolder,
+                ContactListFragment.newInstance(contacts)).commit();
     }
 }

@@ -6,7 +6,7 @@
     <string name="first_hint">First Name</string>
     <string name="second_hint">Last Name</string>
     <string name="third_hint">Phone Number</string>
-    <string name="add_contact_button">Add button</string>
+    <string name="add_contact_button">Add Contact</string>
     <string name="first_name">First Name:</string>
     <string name="last_name">Last Name:</string>
     <string name="phone">Phone Number:</string>
